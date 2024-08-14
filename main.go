@@ -2,7 +2,6 @@ package main
 
 import (
     "crypto/tls"
-    "encoding/json"
     "fmt"
     "io/ioutil"
     "log"
@@ -46,7 +45,7 @@ func hitApi(url string) {
     fmt.Printf("Success on get API data: (%s) - %s\n", time.Now().Format(time.RFC3339), apiData)
 }
 
-func getAPI(url string) (*ApiResponse, error) {
+func getAPI(url string) (string, error) {
     tr := &http.Transport{
         TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
     }
